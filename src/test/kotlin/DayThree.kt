@@ -1,7 +1,6 @@
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
 import org.junit.jupiter.api.Test
-import kotlin.math.pow
 
 class DayThree {
     private val input = listOf(
