@@ -26,12 +26,15 @@ data class Position(val depth: Int = 0, val track: Int = 0)
 fun Position.add(delta: Position): Position = Position(this.depth + delta.depth, this.track + delta.track)
 
 fun String.toPositionDelta(): Position {
-    val change: Int = this.split(" ")[1].toInt()
-    return when {
-        this.startsWith("forward") -> Position(track = change)
-        this.startsWith("back") -> Position(track = -change)
-        this.startsWith("up") -> Position(depth = -change)
-        this.startsWith("down") -> Position(depth = change)
+    val strings = this.split(" ")
+    val direction: String = strings[0]
+    val change: Int = strings[1].toInt()
+
+    return when (direction) {
+        "forward" -> Position(track = change)
+        "back" -> Position(track = -change)
+        "up" -> Position(depth = -change)
+        "down" -> Position(depth = change)
         else -> exitProcess(1)
     }
 }
