@@ -35,7 +35,10 @@ class DayFour {
 
     @Test
     fun `the winner is board 3`() {
+        var idx = 0
+        var drawnNumber: Int
         var winnerFound = false
+
         val board1 = Board(nums1, listOf(unexpectedBoardWinner))
         val board2 = Board(nums2, listOf(unexpectedBoardWinner))
         val board3 = Board(
@@ -43,9 +46,6 @@ class DayFour {
                 { assertThat(it, equalTo(4512)) },
                 { winnerFound = true })
         )
-
-        var idx = 0
-        var drawnNumber: Int
 
         do {
             drawnNumber = input[idx++]
