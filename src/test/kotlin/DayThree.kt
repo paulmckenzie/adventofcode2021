@@ -49,7 +49,7 @@ fun List<String>.power(): Int = this.gamma() * this.epsilon()
 fun List<String>.slice(idx: Int): List<Char> = this.map { it[idx] }
 
 fun List<String>.gamma(): Int =
-    (0..4).map { this.slice(it).mostCommon() }.joinToString(separator = "").asInt()
+    (0..4).map { columnIndex -> this.slice(columnIndex).mostCommon() }.joinToString(separator = "").asInt()
 
 fun List<String>.epsilon(): Int =
     (0..4).map { this.slice(it).leastCommon() }.joinToString(separator = "").asInt()
